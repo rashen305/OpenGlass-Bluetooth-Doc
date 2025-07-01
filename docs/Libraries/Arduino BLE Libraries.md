@@ -1,8 +1,3 @@
----
-share: true
----
-[Telink](Telink.md)
-
 ###### BLEUUID Constructor
 [esp_bt_uuid_t](ESP-IDF.md/#uuid-type)
 ```cpp

@@ -1,7 +1,3 @@
----
-share: true
----
-
 [BLEUUID Constructor](Libraries/Arduino%20BLE%20Libraries.md/#bleuuid-constructor)  
 [BLEServerCallbacks](Libraries/Arduino%20BLE%20Libraries.md/#bleservercallbacks)  
 [BLECharacteristicCallbacks](Libraries/Arduino%20BLE%20Libraries.md/#blecharacteristiccallbacks)  

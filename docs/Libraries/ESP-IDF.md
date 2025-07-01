@@ -1,7 +1,3 @@
----
-share: true
----
-
 ###### UUID type
 ```c
 typedef struct {
