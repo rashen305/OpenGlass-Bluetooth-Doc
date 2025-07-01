@@ -1,0 +1,2153 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sitename.example/Libraries/Telink/">
+      
+      
+        <link rel="prev" href="../ESP-IDF/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Telink - OpenGlass Firmware Bluetooth Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-architecture-design-philosophy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OpenGlass Firmware Bluetooth Documentation" class="md-header__button md-logo" aria-label="OpenGlass Firmware Bluetooth Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenGlass Firmware Bluetooth Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Telink
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OpenGlass Firmware Bluetooth Documentation" class="md-nav__button md-logo" aria-label="OpenGlass Firmware Bluetooth Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OpenGlass Firmware Bluetooth Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firmware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Libraries
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Libraries
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arduino%20BLE%20Libraries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arduino BLE Libraries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ESP-IDF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ESP IDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Telink
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telink
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-architecture-design-philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Architecture &amp; Design Philosophy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Architecture &amp; Design Philosophy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32-bluedroid" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32 (Bluedroid)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink SDK
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-stack-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Stack Organization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Stack Organization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32-stack-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32 Stack Layers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink-stack-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink Stack Layers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Memory Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Memory Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-task-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Task Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Task Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-configuration-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Configuration Approach
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Configuration Approach">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-gatt-database-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. GATT Database Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. GATT Database Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-event-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Event Handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Event Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-transport-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Transport Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Transport Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-security-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Security Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Security Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-development-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Development Approach
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Development Approach">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nvs-non-volatile-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      nvs (non-volatile storage)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Allocation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controller Init
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller-enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controller Enable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-stack-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bluetooth stack init
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-stack-configs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bluetooth stack configs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task Controller
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-pointer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future pointer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlkos_semphr_createbinary" class="md-nav__link">
+    <span class="md-ellipsis">
+      tlkos_semphr_createBinary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlksys_task_input" class="md-nav__link">
+    <span class="md-ellipsis">
+      tlksys_task_input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlkapp_enable_bt_stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      tlkapp_enable_bt_stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blc_svc_setdevicename" class="md-nav__link">
+    <span class="md-ellipsis">
+      blc_svc_setDeviceName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smp-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      smp security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register-server-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register Server App
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gatt-start-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      GATT Start Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-characteristic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Characteristic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gatts-notify" class="md-nav__link">
+    <span class="md-ellipsis">
+      GATTS Notify
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-architecture-design-philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Architecture &amp; Design Philosophy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Architecture &amp; Design Philosophy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32-bluedroid" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32 (Bluedroid)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink SDK
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-stack-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Stack Organization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Stack Organization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32-stack-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32 Stack Layers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink-stack-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink Stack Layers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Memory Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Memory Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-task-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Task Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Task Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-configuration-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Configuration Approach
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Configuration Approach">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-gatt-database-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. GATT Database Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. GATT Database Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-event-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Event Handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Event Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-transport-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Transport Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Transport Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-security-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Security Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Security Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-development-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Development Approach
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Development Approach">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telink_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telink
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nvs-non-volatile-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      nvs (non-volatile storage)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Allocation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controller Init
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller-enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controller Enable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-stack-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bluetooth stack init
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-stack-configs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bluetooth stack configs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task Controller
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-pointer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future pointer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlkos_semphr_createbinary" class="md-nav__link">
+    <span class="md-ellipsis">
+      tlkos_semphr_createBinary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlksys_task_input" class="md-nav__link">
+    <span class="md-ellipsis">
+      tlksys_task_input
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlkapp_enable_bt_stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      tlkapp_enable_bt_stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blc_svc_setdevicename" class="md-nav__link">
+    <span class="md-ellipsis">
+      blc_svc_setDeviceName
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smp-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      smp security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register-server-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register Server App
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gatt-start-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      GATT Start Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-characteristic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Characteristic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gatts-notify" class="md-nav__link">
+    <span class="md-ellipsis">
+      GATTS Notify
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Telink</h1>
+
+<p><a href="../../Firmware/">test</a></p>
+<h2 id="1-architecture-design-philosophy"><strong>1. Architecture &amp; Design Philosophy</strong></h2>
+<h3 id="esp32-bluedroid"><strong>ESP32 (Bluedroid)</strong></h3>
+<ul>
+<li><strong>Monolithic Design</strong>: Single integrated stack with tight coupling</li>
+<li><strong>Centralized Control</strong>: One main Bluetooth task controller (<code>btc_init</code>)</li>
+<li><strong>Dynamic Configuration</strong>: Runtime configuration through structures</li>
+<li><strong>High-Level APIs</strong>: Focus on ease of use with abstracted interfaces</li>
+</ul>
+<h3 id="telink-sdk"><strong>Telink SDK</strong></h3>
+<ul>
+<li><strong>Layered Architecture</strong>: Modular design with clear separation of concerns</li>
+<li><strong>Distributed Control</strong>: Multiple independent layers (tlkapp, stack/ble, tlkapi, drivers)</li>
+<li><strong>Compile-time Configuration</strong>: Uses <code>#define</code> macros for configuration</li>
+<li><strong>Low-Level Control</strong>: Direct hardware access and fine-grained control</li>
+</ul>
+<h2 id="2-stack-organization"><strong>2. Stack Organization</strong></h2>
+<h3 id="esp32-stack-layers"><strong>ESP32 Stack Layers</strong></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Application Layer (Arduino BLE Library)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>         ↓
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ESP-IDF Bluetooth API (Bluedroid)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>         ↓
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Controller Layer (ESP32 Hardware)
+</span></code></pre></div>
+<h3 id="telink-stack-layers"><strong>Telink Stack Layers</strong></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>tlkapp (Application Layer)
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>         ↓
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>stack/ble (Protocol Stack)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>         ↓
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>tlkapi (API Layer)
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>         ↓
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>drivers (Hardware Layer)
+</span></code></pre></div>
+<h2 id="3-memory-management"><strong>3. Memory Management</strong></h2>
+<h3 id="esp32"><strong>ESP32</strong></h3>
+<ul>
+<li><strong>Dynamic Allocation</strong>: Uses <code>osi_malloc()</code>, <code>osi_calloc()</code> for runtime memory</li>
+<li><strong>Future System</strong>: Uses futures for asynchronous operation synchronization</li>
+<li><strong>Centralized Memory</strong>: Single memory pool managed by the stack</li>
+</ul>
+<h3 id="telink"><strong>Telink</strong></h3>
+<ul>
+<li><strong>Static Allocation</strong>: Pre-allocated memory pools and buffers</li>
+<li><strong>Event-Based</strong>: Uses event tables and semaphores for synchronization</li>
+<li><strong>Distributed Memory</strong>: Each layer manages its own memory</li>
+</ul>
+<h2 id="4-task-management"><strong>4. Task Management</strong></h2>
+<h3 id="esp32_1"><strong>ESP32</strong></h3>
+<ul>
+<li><strong>Single Bluetooth Task</strong>: <code>btc_thread</code> handles all Bluetooth operations</li>
+<li><strong>Work Queue System</strong>: Uses work queues for message processing</li>
+<li><strong>Centralized Scheduling</strong>: All Bluetooth operations go through one task</li>
+</ul>
+<h3 id="telink_1"><strong>Telink</strong></h3>
+<ul>
+<li><strong>Multiple Tasks</strong>: Separate tasks for different functions (<code>tlksys_task_create</code>)</li>
+<li><strong>Message Queue System</strong>: Individual message queues per task</li>
+<li><strong>Distributed Scheduling</strong>: Each layer can have its own task</li>
+</ul>
+<h2 id="5-configuration-approach"><strong>5. Configuration Approach</strong></h2>
+<h3 id="esp32_2"><strong>ESP32</strong></h3>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">esp_bluedroid_config_t</span><span class="w"> </span><span class="n">cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="p">.</span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ESP_BT_MODE_BLE</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="p">.</span><span class="n">controller_task_stack_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4096</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">.</span><span class="n">controller_task_prio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="p">.</span><span class="n">sc_en</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">.</span><span class="n">ssp_en</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">};</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">esp_bluedroid_init_with_cfg</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cfg</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="telink_2"><strong>Telink</strong></h3>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Compile-time configuration</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cp">#define TLK_STK_BT_ENABLE          1</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cp">#define BLE_MAX_CONNECTION         4</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cp">#define GATT_MTU_SIZE             23</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="cp">#define BLE_SECURITY_ENABLE        1</span>
+</span></code></pre></div>
+<h2 id="6-gatt-database-management"><strong>6. GATT Database Management</strong></h2>
+<h3 id="esp32_3"><strong>ESP32</strong></h3>
+<ul>
+<li><strong>Dynamic Creation</strong>: Services and characteristics created at runtime</li>
+<li><strong>Object-Oriented</strong>: Uses C++ classes for GATT elements</li>
+<li><strong>Automatic Management</strong>: Stack handles database organization</li>
+</ul>
+<h3 id="telink_3"><strong>Telink</strong></h3>
+<ul>
+<li><strong>Static Definition</strong>: GATT database defined at compile time</li>
+<li><strong>Structure-Based</strong>: Uses C structures for GATT elements</li>
+<li><strong>Manual Management</strong>: Developer must define complete database structure</li>
+</ul>
+<h2 id="7-event-handling"><strong>7. Event Handling</strong></h2>
+<h3 id="esp32_4"><strong>ESP32</strong></h3>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">esp_ble_gap_register_callback</span><span class="p">(</span><span class="n">gap_event_handler</span><span class="p">);</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">esp_ble_gatts_register_callback</span><span class="p">(</span><span class="n">gatts_event_handler</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="telink_4"><strong>Telink</strong></h3>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">blc_gap_register_event_callback</span><span class="p">(</span><span class="n">gap_event_handler</span><span class="p">);</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">blc_gatt_register_server_callback</span><span class="p">(</span><span class="n">gatts_event_handler</span><span class="p">);</span>
+</span></code></pre></div>
+<h2 id="8-transport-layer"><strong>8. Transport Layer</strong></h2>
+<h3 id="esp32_5"><strong>ESP32</strong></h3>
+<ul>
+<li><strong>HCI over UART/SPI</strong>: Standard HCI transport</li>
+<li><strong>Internal Communication</strong>: Direct function calls within SoC</li>
+</ul>
+<h3 id="telink_5"><strong>Telink</strong></h3>
+<ul>
+<li><strong>H0TL (Host-0-Transport-Layer)</strong>: Custom transport for SoC mode</li>
+<li><strong>FIFO-based Communication</strong>: Uses FIFOs for host-controller communication</li>
+</ul>
+<h2 id="9-security-features"><strong>9. Security Features</strong></h2>
+<h3 id="esp32_6"><strong>ESP32</strong></h3>
+<ul>
+<li><strong>Runtime Security Configuration</strong>: Secure Connections, Simple Secure Pairing</li>
+<li><strong>Dynamic Key Management</strong>: Runtime encryption key generation</li>
+</ul>
+<h3 id="telink_6"><strong>Telink</strong></h3>
+<ul>
+<li><strong>Compile-time Security</strong>: Security features configured at build time</li>
+<li><strong>Static Key Storage</strong>: Keys stored in flash/OTP areas</li>
+</ul>
+<h2 id="10-development-approach"><strong>10. Development Approach</strong></h2>
+<h3 id="esp32_7"><strong>ESP32</strong></h3>
+<ul>
+<li><strong>High-Level Development</strong>: Focus on rapid prototyping</li>
+<li><strong>Arduino Compatibility</strong>: Easy migration from Arduino BLE library</li>
+<li><strong>Automatic Optimization</strong>: Stack handles performance optimization</li>
+</ul>
+<h3 id="telink_7"><strong>Telink</strong></h3>
+<ul>
+<li><strong>Low-Level Development</strong>: Focus on performance and control</li>
+<li><strong>Hardware-Specific</strong>: Optimized for Telink chips</li>
+<li><strong>Manual Optimization</strong>: Developer controls performance aspects</li>
+</ul>
+<h2 id="summary"><strong>Summary</strong></h2>
+<p>The <strong>ESP32 stack prioritizes ease of use and rapid development</strong>, while the <strong>Telink stack prioritizes performance, control, and hardware optimization</strong>. ESP32 is better for quick prototyping and Arduino-style development, while Telink is better for production systems requiring fine-grained control and optimization.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Application Layer (Arduino BLE Library)
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>         ↓
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>ESP-IDF Bluetooth API (Bluedroid)
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>         ↓
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Controller Layer (ESP32 Hardware)
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>tlkapp (Application Layer)
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>         ↓
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>stack/ble (Protocol Stack)
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>         ↓
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>tlkapi (API Layer)
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>         ↓
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>drivers (Hardware Layer)
+</span></code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">esp_bluedroid_config_t</span><span class="w"> </span><span class="n">cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="p">.</span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ESP_BT_MODE_BLE</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="p">.</span><span class="n">controller_task_stack_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4096</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="p">.</span><span class="n">controller_task_prio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="p">.</span><span class="n">sc_en</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="p">.</span><span class="n">ssp_en</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">};</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">esp_bluedroid_init_with_cfg</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cfg</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// Compile-time configuration</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="cp">#define TLK_STK_BT_ENABLE          1</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="cp">#define BLE_MAX_CONNECTION         4</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="cp">#define GATT_MTU_SIZE             23</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="cp">#define BLE_SECURITY_ENABLE        1</span>
+</span></code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">esp_ble_gap_register_callback</span><span class="p">(</span><span class="n">gap_event_handler</span><span class="p">);</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">esp_ble_gatts_register_callback</span><span class="p">(</span><span class="n">gatts_event_handler</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">blc_gap_register_event_callback</span><span class="p">(</span><span class="n">gap_event_handler</span><span class="p">);</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">blc_gatt_register_server_callback</span><span class="p">(</span><span class="n">gatts_event_handler</span><span class="p">);</span>
+</span></code></pre></div>
+<h6 id="nvs-non-volatile-storage">nvs (non-volatile storage)</h6>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cp">#ifdef ARDUINO_ARCH_ESP32</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">btStart</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//[[Arduino BLE Libraries#btStart()|btStart()]]</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">      </span><span class="n">errRc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ESP_FAIL</span><span class="p">;</span><span class="w"> </span><span class="c1">//[[ESP-IDF#esp_err_t|esp_err_t]] errRc; #define ESP_FAIL        -1</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">      </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="cp">#else</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="n">errRc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n">nvs_flash_init</span><span class="p">();</span><span class="w"> </span><span class="c1">//[[ESP-IDF#nvs_flash_init|nvs_flash-init]]</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errRc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">ESP_OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//#define ESP_OK 0</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">      </span><span class="n">log_e</span><span class="p">(</span><span class="s">&quot;nvs_flash_init: rc=%d %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">errRc</span><span class="p">,</span><span class="w"> </span><span class="n">GeneralUtils</span><span class="o">::</span><span class="n">errorToString</span><span class="p">(</span><span class="n">errRc</span><span class="p">));</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">      </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+Espressif has branded their flash storage as "NVS"
+Bluetooth needs flash memory for pairing information etc.</p>
+<p>creates a partition</p>
+<h6 id="memory-allocation">Memory Allocation</h6>
+<ol>
+<li>
+<p>Different Architecture: Telink uses static memory allocation vs ESP32's dynamic approach</p>
+</li>
+<li>
+<p>Memory Model: Telink reserves memory permanently for Bluetooth operations</p>
+</li>
+<li>
+<p>Resource Management: No need to release memory since it's always allocated</p>
+</li>
+</ol>
+<p>The Telink SDK doesn't have a memory release function because it uses a different memory management strategy.</p>
+<h6 id="controller-init">Controller Init</h6>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">controller_init</span><span class="p">(</span><span class="n">controller_mode</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="n">HCI_TR_MODE</span><span class="w"> </span><span class="n">tr_mode</span><span class="p">,</span><span class="w"> </span><span class="n">HCI_TR_UART</span><span class="w"> </span><span class="o">*</span><span class="n">hci_tr_uart</span><span class="p">,</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">parameter</span><span class="p">);</span>
+</span></code></pre></div>
+<h6 id="controller-enable">Controller Enable</h6>
+<p>Telink combines initialization and enable into a single step
+While Telink doesn't have a direct disable() function, it does have:</p>
+<ul>
+<li>
+<p>Power management functions (rwip_sleep(), pm_set_dig_module_power_switch())</p>
+</li>
+<li>
+<p>Deinitialization patterns in some applications</p>
+</li>
+<li>
+<p>Resource cleanup mechanisms</p>
+</li>
+</ul>
+<h6 id="bluetooth-stack-init">Bluetooth stack init</h6>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">tlkstk_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">{</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="cp">#if (TLK_STK_BT_ENABLE)</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="n">tlkstk_mem_init</span><span class="p">();</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="n">bth_init</span><span class="p">();</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="n">btp_init</span><span class="p">();</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="cp">#endif</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<h6 id="bluetooth-stack-configs">Bluetooth stack configs</h6>
+<ul>
+<li>Compile-time Configuration: Uses #define macros instead of runtime config</li>
+</ul>
+<h6 id="task-controller">Task Controller</h6>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">tlksys_task_create</span><span class="p">(</span><span class="n">uint08</span><span class="w"> </span><span class="n">taskID</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">tlksys_task_cfg_t</span><span class="w"> </span><span class="o">*</span><span class="n">pCfgs</span><span class="p">)</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="p">{</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pCfgs</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nullptr</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">taskID</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">TLKSYS_TASKID_MAXNUM</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">TLK_EPARAM</span><span class="p">;</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">    </span><span class="n">tlksys_task_t</span><span class="w"> </span><span class="o">*</span><span class="n">pTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">sTlkSysTaskList</span><span class="p">[</span><span class="n">taskID</span><span class="p">];</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">pTask</span><span class="o">-&gt;</span><span class="n">adapt</span><span class="p">.</span><span class="n">usage</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TLKAPI_ADAPT_USAGE_NOMARL</span><span class="p">){</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">TLK_EREPEAT</span><span class="p">;</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">    </span><span class="n">pTask</span><span class="o">-&gt;</span><span class="n">pCfgs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">tlksys_task_cfg_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">pCfgs</span><span class="p">;</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pCfgs</span><span class="o">-&gt;</span><span class="n">Init</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pCfgs</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TLK_ENONE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">TLK_EINIT</span><span class="p">;</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="w">    </span><span class="n">pTask</span><span class="o">-&gt;</span><span class="n">adapt</span><span class="p">.</span><span class="n">usage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TLKAPI_ADAPT_USAGE_FOR_MAIN_THREAD</span><span class="p">;</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="w">    </span><span class="n">tlkos_event_createTab</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="o">&amp;</span><span class="n">sTlkTaskEvtTabHandles</span><span class="p">[</span><span class="n">taskID</span><span class="p">]);</span>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="w">    </span><span class="n">tlkos_msgq_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sTlkTaskMsgQHandles</span><span class="p">[</span><span class="n">taskID</span><span class="p">],</span><span class="mi">128</span><span class="p">,</span><span class="mi">16</span><span class="p">);</span>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a>
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a><span class="w">    </span><span class="n">tlkos_event_regDealCB</span><span class="p">(</span><span class="n">sTlkTaskEvtTabHandles</span><span class="p">[</span><span class="n">taskID</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="n">tlksys_task_handleWakeUp</span><span class="p">);</span>
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a>
+</span><span id="__span-15-35"><a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a><span class="w">    </span><span class="n">pTask</span><span class="o">-&gt;</span><span class="n">adapt</span><span class="p">.</span><span class="n">taskID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskID</span><span class="p">;</span>
+</span><span id="__span-15-36"><a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a>
+</span><span id="__span-15-37"><a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">pCfgs</span><span class="o">-&gt;</span><span class="n">isUseNewThread</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span>
+</span><span id="__span-15-38"><a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a>
+</span><span id="__span-15-39"><a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">TLK_ENONE</span><span class="p">;</span>
+</span><span id="__span-15-40"><a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a>
+</span><span id="__span-15-41"><a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-42"><a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a>
+</span><span id="__span-15-43"><a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a><span class="w">    </span><span class="c1">//following code: create new thread</span>
+</span><span id="__span-15-44"><a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a>
+</span><span id="__span-15-45"><a id="__codelineno-15-45" name="__codelineno-15-45" href="#__codelineno-15-45"></a><span class="w">    </span><span class="n">pTask</span><span class="o">-&gt;</span><span class="n">adapt</span><span class="p">.</span><span class="n">usage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TLKAPI_ADAPT_USAGE_FOR_INDEPENDENCE_THREAD</span><span class="p">;</span>
+</span><span id="__span-15-46"><a id="__codelineno-15-46" name="__codelineno-15-46" href="#__codelineno-15-46"></a>
+</span><span id="__span-15-47"><a id="__codelineno-15-47" name="__codelineno-15-47" href="#__codelineno-15-47"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tlkos_task_create</span><span class="p">(</span><span class="n">tlksys_template_task</span><span class="p">,</span><span class="n">pCfgs</span><span class="o">-&gt;</span><span class="n">pTaskName</span><span class="p">,</span><span class="n">pCfgs</span><span class="o">-&gt;</span><span class="n">stackSize</span><span class="p">,</span><span class="n">pCfgs</span><span class="o">-&gt;</span><span class="n">priority</span><span class="p">,</span><span class="n">pTask</span><span class="p">,</span><span class="n">nullptr</span><span class="p">,</span><span class="o">&amp;</span><span class="n">pTask</span><span class="o">-&gt;</span><span class="n">taskHandle</span><span class="p">);</span>
+</span><span id="__span-15-48"><a id="__codelineno-15-48" name="__codelineno-15-48" href="#__codelineno-15-48"></a>
+</span><span id="__span-15-49"><a id="__codelineno-15-49" name="__codelineno-15-49" href="#__codelineno-15-49"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TLK_ENONE</span><span class="p">){</span>
+</span><span id="__span-15-50"><a id="__codelineno-15-50" name="__codelineno-15-50" href="#__codelineno-15-50"></a>
+</span><span id="__span-15-51"><a id="__codelineno-15-51" name="__codelineno-15-51" href="#__codelineno-15-51"></a><span class="w">        </span><span class="n">pTask</span><span class="o">-&gt;</span><span class="n">adapt</span><span class="p">.</span><span class="n">usage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TLKAPI_ADAPT_USAGE_FOR_MAIN_THREAD</span><span class="p">;</span>
+</span><span id="__span-15-52"><a id="__codelineno-15-52" name="__codelineno-15-52" href="#__codelineno-15-52"></a>
+</span><span id="__span-15-53"><a id="__codelineno-15-53" name="__codelineno-15-53" href="#__codelineno-15-53"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-54"><a id="__codelineno-15-54" name="__codelineno-15-54" href="#__codelineno-15-54"></a>
+</span><span id="__span-15-55"><a id="__codelineno-15-55" name="__codelineno-15-55" href="#__codelineno-15-55"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">TLK_ENONE</span><span class="p">;</span>
+</span><span id="__span-15-56"><a id="__codelineno-15-56" name="__codelineno-15-56" href="#__codelineno-15-56"></a>
+</span><span id="__span-15-57"><a id="__codelineno-15-57" name="__codelineno-15-57" href="#__codelineno-15-57"></a><span class="p">}</span>
+</span><span id="__span-15-58"><a id="__codelineno-15-58" name="__codelineno-15-58" href="#__codelineno-15-58"></a>
+</span><span id="__span-15-59"><a id="__codelineno-15-59" name="__codelineno-15-59" href="#__codelineno-15-59"></a><span class="kt">void</span><span class="w"> </span><span class="nf">tlkstk_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span id="__span-15-60"><a id="__codelineno-15-60" name="__codelineno-15-60" href="#__codelineno-15-60"></a><span class="p">{</span>
+</span><span id="__span-15-61"><a id="__codelineno-15-61" name="__codelineno-15-61" href="#__codelineno-15-61"></a><span class="cp">#if (TLK_STK_BT_ENABLE)</span>
+</span><span id="__span-15-62"><a id="__codelineno-15-62" name="__codelineno-15-62" href="#__codelineno-15-62"></a><span class="w">    </span><span class="n">tlkstk_mem_init</span><span class="p">();</span>
+</span><span id="__span-15-63"><a id="__codelineno-15-63" name="__codelineno-15-63" href="#__codelineno-15-63"></a><span class="w">    </span><span class="n">bth_init</span><span class="p">();</span>
+</span><span id="__span-15-64"><a id="__codelineno-15-64" name="__codelineno-15-64" href="#__codelineno-15-64"></a><span class="w">    </span><span class="n">btp_init</span><span class="p">();</span>
+</span><span id="__span-15-65"><a id="__codelineno-15-65" name="__codelineno-15-65" href="#__codelineno-15-65"></a><span class="cp">#endif</span>
+</span><span id="__span-15-66"><a id="__codelineno-15-66" name="__codelineno-15-66" href="#__codelineno-15-66"></a><span class="p">}</span>
+</span><span id="__span-15-67"><a id="__codelineno-15-67" name="__codelineno-15-67" href="#__codelineno-15-67"></a>
+</span><span id="__span-15-68"><a id="__codelineno-15-68" name="__codelineno-15-68" href="#__codelineno-15-68"></a><span class="kt">int</span><span class="w"> </span><span class="nf">tlkmdi_bt_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span id="__span-15-69"><a id="__codelineno-15-69" name="__codelineno-15-69" href="#__codelineno-15-69"></a><span class="p">{</span>
+</span><span id="__span-15-70"><a id="__codelineno-15-70" name="__codelineno-15-70" href="#__codelineno-15-70"></a><span class="w">    </span><span class="n">tlkmdi_btadapt_init</span><span class="p">(</span><span class="n">TLKSYS_TASKID_BTMGR</span><span class="p">);</span>
+</span><span id="__span-15-71"><a id="__codelineno-15-71" name="__codelineno-15-71" href="#__codelineno-15-71"></a>
+</span><span id="__span-15-72"><a id="__codelineno-15-72" name="__codelineno-15-72" href="#__codelineno-15-72"></a><span class="w">    </span><span class="cp">#if (TLK_STK_BT_ENABLE)</span>
+</span><span id="__span-15-73"><a id="__codelineno-15-73" name="__codelineno-15-73" href="#__codelineno-15-73"></a><span class="w">    </span><span class="n">tlkmdi_btacl_init</span><span class="p">();</span><span class="w">           </span><span class="c1">// ACL connection management</span>
+</span><span id="__span-15-74"><a id="__codelineno-15-74" name="__codelineno-15-74" href="#__codelineno-15-74"></a><span class="w">    </span><span class="n">tlkmdi_btScan_process_init</span><span class="p">();</span><span class="w">  </span><span class="c1">// Scan process initialization</span>
+</span><span id="__span-15-75"><a id="__codelineno-15-75" name="__codelineno-15-75" href="#__codelineno-15-75"></a><span class="w">    </span><span class="cp">#endif</span>
+</span><span id="__span-15-76"><a id="__codelineno-15-76" name="__codelineno-15-76" href="#__codelineno-15-76"></a>
+</span><span id="__span-15-77"><a id="__codelineno-15-77" name="__codelineno-15-77" href="#__codelineno-15-77"></a><span class="w">    </span><span class="cp">#if (TLK_MW_BTINQ_ENABLE)</span>
+</span><span id="__span-15-78"><a id="__codelineno-15-78" name="__codelineno-15-78" href="#__codelineno-15-78"></a><span class="w">    </span><span class="n">tlkmdi_btinq_init</span><span class="p">();</span><span class="w">           </span><span class="c1">// Inquiry functionality</span>
+</span><span id="__span-15-79"><a id="__codelineno-15-79" name="__codelineno-15-79" href="#__codelineno-15-79"></a><span class="w">    </span><span class="cp">#endif</span>
+</span><span id="__span-15-80"><a id="__codelineno-15-80" name="__codelineno-15-80" href="#__codelineno-15-80"></a>
+</span><span id="__span-15-81"><a id="__codelineno-15-81" name="__codelineno-15-81" href="#__codelineno-15-81"></a><span class="w">    </span><span class="cp">#if (TLKBTP_CFG_ATTSRV_ENABLE)</span>
+</span><span id="__span-15-82"><a id="__codelineno-15-82" name="__codelineno-15-82" href="#__codelineno-15-82"></a><span class="w">    </span><span class="n">tlkmdi_btatt_init</span><span class="p">();</span><span class="w">           </span><span class="c1">// ATT server</span>
+</span><span id="__span-15-83"><a id="__codelineno-15-83" name="__codelineno-15-83" href="#__codelineno-15-83"></a><span class="w">    </span><span class="cp">#endif</span>
+</span><span id="__span-15-84"><a id="__codelineno-15-84" name="__codelineno-15-84" href="#__codelineno-15-84"></a>
+</span><span id="__span-15-85"><a id="__codelineno-15-85" name="__codelineno-15-85" href="#__codelineno-15-85"></a><span class="w">    </span><span class="cp">#if (TLKBTP_CFG_HID_ENABLE)</span>
+</span><span id="__span-15-86"><a id="__codelineno-15-86" name="__codelineno-15-86" href="#__codelineno-15-86"></a><span class="w">    </span><span class="n">tlkmdi_bthid_init</span><span class="p">();</span><span class="w">           </span><span class="c1">// HID profile</span>
+</span><span id="__span-15-87"><a id="__codelineno-15-87" name="__codelineno-15-87" href="#__codelineno-15-87"></a><span class="w">    </span><span class="cp">#endif</span>
+</span><span id="__span-15-88"><a id="__codelineno-15-88" name="__codelineno-15-88" href="#__codelineno-15-88"></a>
+</span><span id="__span-15-89"><a id="__codelineno-15-89" name="__codelineno-15-89" href="#__codelineno-15-89"></a><span class="w">    </span><span class="cp">#if (TLKBTP_CFG_HFP_ENABLE)</span>
+</span><span id="__span-15-90"><a id="__codelineno-15-90" name="__codelineno-15-90" href="#__codelineno-15-90"></a><span class="w">    </span><span class="n">tlkmdi_bthfp_init</span><span class="p">();</span><span class="w">           </span><span class="c1">// HFP profile</span>
+</span><span id="__span-15-91"><a id="__codelineno-15-91" name="__codelineno-15-91" href="#__codelineno-15-91"></a><span class="w">    </span><span class="cp">#endif</span>
+</span><span id="__span-15-92"><a id="__codelineno-15-92" name="__codelineno-15-92" href="#__codelineno-15-92"></a>
+</span><span id="__span-15-93"><a id="__codelineno-15-93" name="__codelineno-15-93" href="#__codelineno-15-93"></a><span class="w">    </span><span class="cp">#if (TLKBTP_CFG_A2DP_ENABLE)</span>
+</span><span id="__span-15-94"><a id="__codelineno-15-94" name="__codelineno-15-94" href="#__codelineno-15-94"></a><span class="w">    </span><span class="n">tlkmdi_bta2dp_init</span><span class="p">();</span><span class="w">          </span><span class="c1">// A2DP profile</span>
+</span><span id="__span-15-95"><a id="__codelineno-15-95" name="__codelineno-15-95" href="#__codelineno-15-95"></a><span class="w">    </span><span class="cp">#endif</span>
+</span><span id="__span-15-96"><a id="__codelineno-15-96" name="__codelineno-15-96" href="#__codelineno-15-96"></a>
+</span><span id="__span-15-97"><a id="__codelineno-15-97" name="__codelineno-15-97" href="#__codelineno-15-97"></a><span class="w">    </span><span class="cp">#if (TLKBTP_CFG_HFP_ENABLE)</span>
+</span><span id="__span-15-98"><a id="__codelineno-15-98" name="__codelineno-15-98" href="#__codelineno-15-98"></a><span class="w">    </span><span class="n">tlkmdi_btsco_init</span><span class="p">();</span><span class="w">           </span><span class="c1">// SCO connection</span>
+</span><span id="__span-15-99"><a id="__codelineno-15-99" name="__codelineno-15-99" href="#__codelineno-15-99"></a><span class="w">    </span><span class="cp">#endif</span>
+</span><span id="__span-15-100"><a id="__codelineno-15-100" name="__codelineno-15-100" href="#__codelineno-15-100"></a>
+</span><span id="__span-15-101"><a id="__codelineno-15-101" name="__codelineno-15-101" href="#__codelineno-15-101"></a><span class="w">    </span><span class="n">tlkmdi_bt_mgr_ctrlInit</span><span class="p">();</span><span class="w">      </span><span class="c1">// Manager control initialization</span>
+</span><span id="__span-15-102"><a id="__codelineno-15-102" name="__codelineno-15-102" href="#__codelineno-15-102"></a>
+</span><span id="__span-15-103"><a id="__codelineno-15-103" name="__codelineno-15-103" href="#__codelineno-15-103"></a><span class="w">    </span><span class="cp">#if (TLKBTP_CFG_PBAP_ENABLE)</span>
+</span><span id="__span-15-104"><a id="__codelineno-15-104" name="__codelineno-15-104" href="#__codelineno-15-104"></a><span class="w">    </span><span class="n">tlkmdi_pbap_init</span><span class="p">();</span><span class="w">            </span><span class="c1">// PBAP profile</span>
+</span><span id="__span-15-105"><a id="__codelineno-15-105" name="__codelineno-15-105" href="#__codelineno-15-105"></a><span class="w">    </span><span class="cp">#endif</span>
+</span><span id="__span-15-106"><a id="__codelineno-15-106" name="__codelineno-15-106" href="#__codelineno-15-106"></a>
+</span><span id="__span-15-107"><a id="__codelineno-15-107" name="__codelineno-15-107" href="#__codelineno-15-107"></a><span class="w">    </span><span class="cp">#if (TLKBTP_CFG_IAP_ENABLE)</span>
+</span><span id="__span-15-108"><a id="__codelineno-15-108" name="__codelineno-15-108" href="#__codelineno-15-108"></a><span class="w">    </span><span class="n">tlkmdi_btiap_init</span><span class="p">();</span><span class="w">           </span><span class="c1">// IAP profile</span>
+</span><span id="__span-15-109"><a id="__codelineno-15-109" name="__codelineno-15-109" href="#__codelineno-15-109"></a><span class="w">    </span><span class="cp">#endif</span>
+</span><span id="__span-15-110"><a id="__codelineno-15-110" name="__codelineno-15-110" href="#__codelineno-15-110"></a>
+</span><span id="__span-15-111"><a id="__codelineno-15-111" name="__codelineno-15-111" href="#__codelineno-15-111"></a><span class="w">    </span><span class="n">tlkmdi_bt_sppTestInit</span><span class="p">();</span><span class="w">       </span><span class="c1">// SPP test initialization</span>
+</span><span id="__span-15-112"><a id="__codelineno-15-112" name="__codelineno-15-112" href="#__codelineno-15-112"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">TLK_ENONE</span><span class="p">;</span>
+</span><span id="__span-15-113"><a id="__codelineno-15-113" name="__codelineno-15-113" href="#__codelineno-15-113"></a><span class="p">}</span>
+</span></code></pre></div>
+<h6 id="future-pointer">Future pointer</h6>
+<ul>
+<li>
+<p>Purpose: Returns a pointer to a specific future object from an array</p>
+</li>
+<li>
+<p>Architecture: Uses futures for asynchronous operation synchronization</p>
+</li>
+<li>
+<p>Use Case: Coordinates between different Bluetooth tasks and operations</p>
+</li>
+</ul>
+<p>Telink SDK Approach:</p>
+<ul>
+<li>
+<p>No Future System: Telink doesn't use futures for task synchronization</p>
+</li>
+<li>
+<p>Event-Based: Uses event tables and semaphores for task coordination</p>
+</li>
+<li>
+<p>Direct Communication: Tasks communicate directly through message queues and events</p>
+</li>
+</ul>
+<h6 id="tlkos_semphr_createbinary">tlkos_semphr_createBinary</h6>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">tlkos_semphr_createBinary</span><span class="p">(</span><span class="n">TlkOsSemphrHandle_t</span><span class="w"> </span><span class="o">*</span><span class="n">semphrHandle</span><span class="p">)</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="p">{</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">semphrHandle</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">TLK_EPARAM</span><span class="p">;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="o">*</span><span class="n">semphrHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xSemaphoreCreateBinary</span><span class="p">();</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">TLK_ENONE</span><span class="p">;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<h6 id="tlksys_task_input">tlksys_task_input</h6>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">tlksys_task_input</span><span class="p">(</span><span class="n">uint16</span><span class="w"> </span><span class="n">taskID</span><span class="p">,</span><span class="w"> </span><span class="n">uint16</span><span class="w"> </span><span class="n">msgID</span><span class="p">,</span><span class="w"> </span><span class="n">uint08</span><span class="w"> </span><span class="o">*</span><span class="n">pData</span><span class="p">,</span><span class="w"> </span><span class="n">uint16</span><span class="w"> </span><span class="n">dataLen</span><span class="p">)</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="p">{</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">taskID</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">TLKSYS_TASKID_MAXNUM</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">sTlkSysTaskList</span><span class="p">[</span><span class="n">taskID</span><span class="p">].</span><span class="n">adapt</span><span class="p">.</span><span class="n">usage</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">TLK_EPARAM</span><span class="p">;</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sTlkSysTaskList</span><span class="p">[</span><span class="n">taskID</span><span class="p">].</span><span class="n">pCfgs</span><span class="o">-&gt;</span><span class="n">Input</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">TLK_ENOSUPPORT</span><span class="p">;</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">sTlkSysTaskList</span><span class="p">[</span><span class="n">taskID</span><span class="p">].</span><span class="n">adapt</span><span class="p">.</span><span class="n">usage</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TLKAPI_ADAPT_USAGE_FOR_INDEPENDENCE_THREAD</span><span class="p">){</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sTlkSysTaskList</span><span class="p">[</span><span class="n">taskID</span><span class="p">].</span><span class="n">pCfgs</span><span class="o">-&gt;</span><span class="n">Input</span><span class="p">(</span><span class="n">msgID</span><span class="p">,</span><span class="w"> </span><span class="n">pData</span><span class="p">,</span><span class="w"> </span><span class="n">dataLen</span><span class="p">);</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">tlkos_task_getRunningTask</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sTlkSysTaskList</span><span class="p">[</span><span class="n">taskID</span><span class="p">].</span><span class="n">taskHandle</span><span class="p">){</span>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sTlkSysTaskList</span><span class="p">[</span><span class="n">taskID</span><span class="p">].</span><span class="n">pCfgs</span><span class="o">-&gt;</span><span class="n">Input</span><span class="p">(</span><span class="n">msgID</span><span class="p">,</span><span class="w"> </span><span class="n">pData</span><span class="p">,</span><span class="w"> </span><span class="n">dataLen</span><span class="p">);</span>
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a>
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="w">    </span><span class="c1">//to other thread:</span>
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a>
+</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="w">    </span><span class="n">uint08</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="n">dataLen</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span>
+</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a>
+</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="w">    </span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">msgID</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">);</span>
+</span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a>
+</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="w">    </span><span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">msgID</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xFF00</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+</span><span id="__span-17-36"><a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a>
+</span><span id="__span-17-37"><a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a><span class="w">    </span><span class="n">buffer</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">dataLen</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">);</span>
+</span><span id="__span-17-38"><a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a>
+</span><span id="__span-17-39"><a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a><span class="w">    </span><span class="n">buffer</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">dataLen</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xFF00</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+</span><span id="__span-17-40"><a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a>
+</span><span id="__span-17-41"><a id="__codelineno-17-41" name="__codelineno-17-41" href="#__codelineno-17-41"></a><span class="w">    </span><span class="n">tmemcpy</span><span class="p">(</span><span class="n">buffer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="n">pData</span><span class="p">,</span><span class="n">dataLen</span><span class="p">);</span>
+</span><span id="__span-17-42"><a id="__codelineno-17-42" name="__codelineno-17-42" href="#__codelineno-17-42"></a>
+</span><span id="__span-17-43"><a id="__codelineno-17-43" name="__codelineno-17-43" href="#__codelineno-17-43"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tlkos_msgq_send</span><span class="p">(</span><span class="n">sTlkTaskMsgQHandles</span><span class="p">[</span><span class="n">taskID</span><span class="p">],</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">dataLen</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="n">TLKOS_WAIT_FOREVER</span><span class="p">);</span>
+</span><span id="__span-17-44"><a id="__codelineno-17-44" name="__codelineno-17-44" href="#__codelineno-17-44"></a>
+</span><span id="__span-17-45"><a id="__codelineno-17-45" name="__codelineno-17-45" href="#__codelineno-17-45"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">res</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TLK_ENONE</span><span class="p">){</span>
+</span><span id="__span-17-46"><a id="__codelineno-17-46" name="__codelineno-17-46" href="#__codelineno-17-46"></a>
+</span><span id="__span-17-47"><a id="__codelineno-17-47" name="__codelineno-17-47" href="#__codelineno-17-47"></a><span class="w">        </span><span class="n">tlksys_task_wakeUp</span><span class="p">(</span><span class="n">taskID</span><span class="p">);</span>
+</span><span id="__span-17-48"><a id="__codelineno-17-48" name="__codelineno-17-48" href="#__codelineno-17-48"></a>
+</span><span id="__span-17-49"><a id="__codelineno-17-49" name="__codelineno-17-49" href="#__codelineno-17-49"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-50"><a id="__codelineno-17-50" name="__codelineno-17-50" href="#__codelineno-17-50"></a>
+</span><span id="__span-17-51"><a id="__codelineno-17-51" name="__codelineno-17-51" href="#__codelineno-17-51"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+</span><span id="__span-17-52"><a id="__codelineno-17-52" name="__codelineno-17-52" href="#__codelineno-17-52"></a>
+</span><span id="__span-17-53"><a id="__codelineno-17-53" name="__codelineno-17-53" href="#__codelineno-17-53"></a><span class="p">}</span>
+</span></code></pre></div>
+<h6 id="tlkapp_enable_bt_stack">tlkapp_enable_bt_stack</h6>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">tlkapp_enable_bt_stack</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">{</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="n">pm_set_dig_module_power_switch</span><span class="p">(</span><span class="n">FLD_PD_ZB_EN</span><span class="p">,</span><span class="w"> </span><span class="n">PM_POWER_UP</span><span class="p">);</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span><span class="n">user_init</span><span class="p">();</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">    </span><span class="n">delay_us</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">    </span><span class="c1">// PLL_264M_D25F_DSP_132M_HCLK_66M_PCLK_66M_MSPI_44M_WT_11M;</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">    </span><span class="n">app_btmgr_reStart</span><span class="p">();</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<h6 id="blc_svc_setdevicename">blc_svc_setDeviceName</h6>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">blc_svc_setDeviceName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">name</span><span class="p">);</span>
+</span></code></pre></div>
+<h6 id="smp-security">smp security</h6>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="cm">/**</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="cm"> * @brief      This function is used to set device&#39;s security parameters.</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="cm"> * @param[in]  mode - The bonding mode value can refer to the structure &#39;bonding_mode_t&#39;.</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="cm"> * @param[in]  MITM_en - 0: Disable MITM protection;  1: Enable MITM protection.</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="cm"> * @param[in]  method - 0: LE_Legacy_Pairing; 1: LE_Secure_Connection.</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="cm"> * @param[in]  OOB_en - 0: Disable OOB authentication; 1: Enable OOB authentication.</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="cm"> * @param[in]  keyPress_en - 0: Disable Keypress; 1: Enable Keypress.</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="cm"> * @param[in]  ioCapability - The IO capability&#39;s value can refer to the structure &#39;io_capability_t&#39;.</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="cm"> * @return     none.</span>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="cm"> */</span>
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>
+</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a><span class="kt">void</span><span class="w"> </span><span class="nf">blc_smp_setSecurityParameters</span><span class="p">(</span><span class="n">bonding_mode_t</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MITM_en</span><span class="p">,</span><span class="w"> </span><span class="n">pairing_methods_t</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">OOB_en</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">keyPress_en</span><span class="p">,</span><span class="w"> </span><span class="n">io_capability_t</span><span class="w"> </span><span class="n">ioCapability</span><span class="p">);</span>
+</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>
+</span><span id="__span-20-23"><a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a><span class="kt">void</span><span class="w"> </span><span class="nf">blc_smp_setSecurityParameters_central</span><span class="p">(</span><span class="n">bonding_mode_t</span><span class="w"> </span><span class="n">bond_mode</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MITM_en</span><span class="p">,</span><span class="w"> </span><span class="n">pairing_methods_t</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">OOB_en</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">keyPress_en</span><span class="p">,</span><span class="w"> </span><span class="n">io_capability_t</span><span class="w"> </span><span class="n">ioCapability</span><span class="p">);</span>
+</span><span id="__span-20-24"><a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a>
+</span><span id="__span-20-25"><a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a><span class="kt">void</span><span class="w"> </span><span class="nf">blc_smp_setSecurityParameters_periphr</span><span class="p">(</span><span class="n">bonding_mode_t</span><span class="w"> </span><span class="n">bond_mode</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MITM_en</span><span class="p">,</span><span class="w"> </span><span class="n">pairing_methods_t</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">OOB_en</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">keyPress_en</span><span class="p">,</span><span class="w"> </span><span class="n">io_capability_t</span><span class="w"> </span><span class="n">ioCapability</span><span class="p">);</span>
+</span></code></pre></div>
+<h6 id="register-server-app">Register Server App</h6>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">blc_prf_register_service_module</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">ble_prf_process</span><span class="w"> </span><span class="o">*</span><span class="n">p_module</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">param</span><span class="p">);</span>
+</span></code></pre></div>
+<h6 id="create-service">Create Service</h6>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">extern</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">blc_gatts_addAttributeServiceGroup_old</span><span class="p">(</span><span class="n">atts_group_t</span><span class="w"> </span><span class="o">*</span><span class="n">pGroup</span><span class="p">);</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="cp">#define blc_gatts_addAttributeServiceGroup(pGroup)  blc_gatts_addAttributeServiceGroup_old((atts_group_t *)pGroup)</span>
+</span></code></pre></div>
+<h6 id="attribute-values">Attribute Values</h6>
+<p><div class="language-c highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="cm">/**</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="cm"> * @brief       Register ATT table.</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="cm"> * @param[in]   p - Pointer point to attribute table.</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="cm"> * @return[in]  0: success</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="cm"> *              other: fail</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="cm"> */</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="kt">void</span><span class="w"> </span><span class="nf">bls_att_setAttributeTable</span><span class="p">(</span><span class="n">u8</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">);</span>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">__attribute__</span><span class="p">((</span><span class="n">packed</span><span class="p">))</span><span class="w"> </span><span class="n">attribute</span>
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="p">{</span>
+</span><span id="__span-23-17"><a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="w">    </span><span class="n">u16</span><span class="w">                      </span><span class="n">attNum</span><span class="p">;</span>
+</span><span id="__span-23-18"><a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="w">    </span><span class="n">u8</span><span class="w">                       </span><span class="n">perm</span><span class="p">;</span>
+</span><span id="__span-23-19"><a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a><span class="w">    </span><span class="n">u8</span><span class="w">                       </span><span class="n">uuidLen</span><span class="p">;</span>
+</span><span id="__span-23-20"><a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a><span class="w">    </span><span class="n">u32</span><span class="w">                      </span><span class="n">attrLen</span><span class="p">;</span><span class="w"> </span><span class="c1">//4 bytes aligned</span>
+</span><span id="__span-23-21"><a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a><span class="w">    </span><span class="n">u8</span><span class="w">                      </span><span class="o">*</span><span class="n">uuid</span><span class="p">;</span>
+</span><span id="__span-23-22"><a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a><span class="w">    </span><span class="n">u8</span><span class="w">                      </span><span class="o">*</span><span class="n">pAttrValue</span><span class="p">;</span>
+</span><span id="__span-23-23"><a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a><span class="w">    </span><span class="n">att_readwrite_callback_t</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+</span><span id="__span-23-24"><a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a><span class="w">    </span><span class="n">att_readwrite_callback_t</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+</span><span id="__span-23-25"><a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a><span class="p">}</span><span class="w"> </span><span class="n">attribute_t</span><span class="p">;</span>
+</span></code></pre></div>
+There is no direct equivalent to esp_ble_gatts_set_attr_value() in the current Telink SDK. To achieve the same functionality, you would need to:</p>
+<ol>
+<li>
+<p>Directly modify the attribute value pointer (pAttrValue) in your attribute table</p>
+</li>
+<li>
+<p>Implement a custom function similar to what was referenced in your translation document</p>
+</li>
+<li>
+<p>Use the write callback mechanism to handle dynamic value changes</p>
+</li>
+</ol>
+<p>The Telink SDK uses a more static, compile-time approach to attribute management compared to ESP32's dynamic runtime approach.</p>
+<h6 id="gatt-start-service">GATT Start Service</h6>
+<ol>
+<li>
+<p>Different Architecture:</p>
+</li>
+<li>
+<p>ESP32: Uses a dynamic service creation model where services are created and then "started" to make them available</p>
+</li>
+<li>
+<p>Telink: Uses a static attribute table approach where services are automatically available once registered</p>
+</li>
+<li>
+<p>Service Registration Process:</p>
+</li>
+<li>
+<p>ESP32: esp_ble_gatts_create_service() → esp_ble_gatts_start_service()</p>
+</li>
+<li>
+<p>Telink: Services are immediately available when registered via bls_att_setAttributeTable()</p>
+</li>
+</ol>
+<h6 id="add-characteristic">Add Characteristic</h6>
+<p>The Telink SDK uses a static attribute table that defines all services and characteristics at compile time. Here's how it works:</p>
+<h6 id="gatts-notify">GATTS Notify</h6>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="cm">/**</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="cm"> *   @brief  Send a notification message to a client.</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="cm"> *</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="cm"> *   @param[in]   conn_handle  ACL Connection handle.</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="cm"> *   @param[in]   attr_handle  Attribute handle.</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="cm"> *   @param[in]   value        Pointer to the value to be notified.</span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="cm"> *   @param[in]   len          Length of the value to be notified.</span>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="cm"> *</span>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="cm"> *   @return BLE_HOST_ERR_SUCC if the handle value notification is sent successfully.</span>
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a><span class="cm"> */</span>
+</span><span id="__span-24-20"><a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>
+</span><span id="__span-24-21"><a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a><span class="kt">int</span><span class="w"> </span><span class="nf">ble_gatts_notify</span><span class="p">(</span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">conn_handle</span><span class="p">,</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">attr_handle</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">len</span><span class="p">);</span>
+</span><span id="__span-24-22"><a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>
+</span><span id="__span-24-23"><a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a><span class="cm">/**</span>
+</span><span id="__span-24-24"><a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a><span class="cm"> *   @brief  Sends an ATT Handle Value Indication(ATT channel) PDU with the given parameters.</span>
+</span><span id="__span-24-25"><a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a><span class="cm"> *</span>
+</span><span id="__span-24-26"><a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a><span class="cm"> *   @param[in] conn_handle: The connection handle.</span>
+</span><span id="__span-24-27"><a id="__codelineno-24-27" name="__codelineno-24-27" href="#__codelineno-24-27"></a><span class="cm"> *   @param[in] handle: The handle to indicate attribute value.</span>
+</span><span id="__span-24-28"><a id="__codelineno-24-28" name="__codelineno-24-28" href="#__codelineno-24-28"></a><span class="cm"> *   @param[in] value: The attribute value to be indicated.</span>
+</span><span id="__span-24-29"><a id="__codelineno-24-29" name="__codelineno-24-29" href="#__codelineno-24-29"></a><span class="cm"> *   @param[in] length: The size of the attribute value.</span>
+</span><span id="__span-24-30"><a id="__codelineno-24-30" name="__codelineno-24-30" href="#__codelineno-24-30"></a><span class="cm"> *</span>
+</span><span id="__span-24-31"><a id="__codelineno-24-31" name="__codelineno-24-31" href="#__codelineno-24-31"></a><span class="cm"> *   @return BLE_HOST_ERR_SUCC if the handle value indication is sent successfully.</span>
+</span><span id="__span-24-32"><a id="__codelineno-24-32" name="__codelineno-24-32" href="#__codelineno-24-32"></a><span class="cm"> *      - BLE_L2CAP_ERR_ATT_INVALID_HANDLE if the handle is invalid.</span>
+</span><span id="__span-24-33"><a id="__codelineno-24-33" name="__codelineno-24-33" href="#__codelineno-24-33"></a><span class="cm"> *      - BLE_L2CAP_ERR_INVALID_PARAMS if the value is NULL and length is not 0.</span>
+</span><span id="__span-24-34"><a id="__codelineno-24-34" name="__codelineno-24-34" href="#__codelineno-24-34"></a><span class="cm"> */</span>
+</span><span id="__span-24-35"><a id="__codelineno-24-35" name="__codelineno-24-35" href="#__codelineno-24-35"></a><span class="kt">int</span><span class="w"> </span><span class="nf">ble_host_att_send_handle_value_indication</span><span class="p">(</span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">conn_handle</span><span class="p">,</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">handle</span><span class="p">,</span>
+</span><span id="__span-24-36"><a id="__codelineno-24-36" name="__codelineno-24-36" href="#__codelineno-24-36"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">length</span><span class="p">);</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
